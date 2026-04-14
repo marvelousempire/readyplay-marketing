@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "READYPLAY — Pickup sports, made simple",
+  title: "READYPLAY — Multi-sport pickup, tap scorekeeping, real reputation",
   description:
-    "Multi-sport pickup platform: venues, rosters, live scores, and trust. Basketball is live first—more sports on the same shell.",
+    "Peer-managed sports platform: Play Sites, tap-to-score live boards, leaderboards, Achievement Hall, credits for scorekeepers, and a marketplace vision for on-demand fill-ins. Basketball is the deepest live vertical today; more sports share the same shell.",
 };
 
 export default function RootLayout({

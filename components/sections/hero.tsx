@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { IPhoneMockup } from "@/components/iphone-mockup";
+import { brand } from "@/brand-marketing";
 
 export function Hero() {
   return (
@@ -18,9 +19,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            Pickup sports,
+            Real runs.
             <br />
-            made simple.
+            Real record.
           </motion.h1>
           <motion.p
             className="mt-6 text-lg text-neutral-600 md:text-xl"
@@ -28,8 +29,16 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           >
-            One trust layer for real runs—basketball leads with the deepest live
-            game today; more sports share the same shell tomorrow.
+            {brand.pitchCore}
+          </motion.p>
+          <motion.p
+            className="mt-4 text-base font-medium text-neutral-800 md:text-lg"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.48, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Tap players on the live board to score—built for bright sun, fast possessions, and a
+            scorekeeper who never fights the app.
           </motion.p>
           <motion.div
             className="mt-10 flex flex-wrap justify-center gap-3 md:justify-start"
@@ -51,7 +60,7 @@ export function Hero() {
             </Link>
           </motion.div>
         </div>
-        <IPhoneMockup />
+        <IPhoneMockup className="md:justify-self-end" />
       </div>
     </section>
   );

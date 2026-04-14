@@ -1,6 +1,7 @@
 "use client";
 
 import { MotionReveal } from "@/components/motion-reveal";
+import { brand } from "@/brand-marketing";
 
 export function Solution() {
   return (
@@ -14,12 +15,13 @@ export function Solution() {
             The fix
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 md:text-5xl">
-            READYPLAY fixes that.
+            {brand.fullName} is the antidote.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600">
-            One calm place to see the venue, the run, and who is in—so you spend
-            less time coordinating and more time playing.
+            Structured games, finished records, reviews that stick to your identity, and leaderboards
+            that reward how you actually play. {brand.parks}
           </p>
+          <p className="mx-auto mt-4 max-w-xl text-base text-neutral-600">{brand.pitchExercise}</p>
         </MotionReveal>
       </div>
     </section>
