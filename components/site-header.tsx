@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 /** Mobile hamburger: every label uses at least two words for scan clarity. */
@@ -51,20 +50,21 @@ function IconClose({ className = "h-5 w-5" }: { className?: string }) {
 }
 
 export function SiteHeader() {
-  const pathname = usePathname();
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  /** Close drawer on real route changes (e.g. / → /changelog/) without putting onClick on <Link>. */
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
-  /** Hash-only navigations on the home page still need to dismiss the menu. */
+  /** Hash-only navigations on the home page dismiss the drawer (avoid usePathname — extra chunk + HMR issues with static export). */
   useEffect(() => {
     const onHash = () => setMenuOpen(false);
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  /** Browser back/forward after in-app navigation: close menu without importing next/navigation. */
+  useEffect(() => {
+    const onPop = () => setMenuOpen(false);
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
   }, []);
 
   useEffect(() => {

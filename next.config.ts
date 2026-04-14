@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  /** Framer Motion ships mixed module shapes; transpiling avoids occasional Webpack “module is not a function” in dev. */
+  transpilePackages: ["framer-motion"],
 };
 
 export default nextConfig;
