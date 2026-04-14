@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { SportSticker } from "@/components/sport-sticker";
 import { courtSportEntries, mosaicExtraStickers } from "@/court-sport-marketing";
-import { assetPath } from "@/brand-marketing";
 
 type Slot = {
   emoji: string;
@@ -21,7 +20,6 @@ type PoolItem = { emoji: string; imageSrc?: string };
 function buildSlots(): Slot[] {
   const sportItems: PoolItem[] = courtSportEntries.map((s) => ({
     emoji: s.sticker,
-    imageSrc: assetPath(`/marketing/icons/${s.iconFile}`),
   }));
   const extraItems: PoolItem[] = mosaicExtraStickers.map((e) => ({ emoji: e }));
   const pool: PoolItem[] = [...sportItems, ...extraItems];
@@ -63,7 +61,7 @@ export function SportStickerMosaic() {
       className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.34]"
       aria-hidden
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-orange-50/40 to-amber-100/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/92 via-sky-50/35 to-violet-50/25" />
       {SLOTS.map((s, idx) => {
         const scale = 0.42 + s.size / 220;
         return (
@@ -90,7 +88,7 @@ export function SportStickerMosaic() {
               emoji={s.emoji}
               imageSrc={s.imageSrc}
               size="xs"
-              className="border border-white/60 bg-white/45 shadow-[0_6px_20px_rgba(0,0,0,0.06)] backdrop-blur-[2px]"
+              className="border border-white/70 bg-white/55 shadow-[0_6px_20px_rgba(15,23,42,0.06)] backdrop-blur-[2px]"
             />
           </motion.div>
         );

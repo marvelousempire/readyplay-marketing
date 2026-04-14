@@ -2,8 +2,9 @@
  * Court sport grid — keep in sync with `CourtSport` in `Court.swift` (order, labels, live flag, strip labels).
  *
  * **iOS app icons:** `SportSwitchStrip` and the sport hub use `Image(systemName: CourtSport.icon)` (SF Symbols).
- * **Web icons:** Drop PNG exports from SF Symbols.app into `public/marketing/icons/` using the filenames in
- *   `iconFile` below. Until the file exists, the web falls back to the `sticker` emoji.
+ * **Web marketing:** Stickers use the colorful `sticker` emoji site-wide for a friendly read at small sizes.
+ *   Optional SF Symbol PNGs in `public/marketing/icons/` (`iconFile`) are for future use if a screen needs them;
+ *   pass `imageSrc` on `SportSticker` only when you opt in.
  *   Export steps: SF Symbols app → search symbol → File → Export → PNG @ 3x, ~72pt, any weight.
  */
 

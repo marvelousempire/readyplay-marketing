@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { courtSportEntries } from "@/court-sport-marketing";
-import { assetPath } from "@/brand-marketing";
 
 export type SportStickerSize = "xs" | "sm" | "md" | "lg" | "xl";
 
@@ -34,10 +33,7 @@ type SportStickerProps = {
   className?: string;
 };
 
-/**
- * Circle sticker — renders the exported SF Symbol PNG when available,
- * coloured to match the brand palette. Falls back to emoji silently.
- */
+/** Circle sticker — emoji by default; optional `imageSrc` for SF Symbol PNG when you opt in. */
 export function SportSticker({
   emoji,
   imageSrc,
@@ -53,8 +49,10 @@ export function SportSticker({
   return (
     <span
       title={title}
-      className={`inline-flex shrink-0 items-center justify-center rounded-full bg-neutral-100 leading-none shadow-sm ring-1 ring-neutral-200/90 ${sizeClass[size]} ${
-        emphasized ? "ring-2 ring-brand/50 ring-offset-2 ring-offset-white" : ""
+      className={`inline-flex shrink-0 items-center justify-center rounded-full bg-white leading-none shadow-sm ring-1 ring-neutral-200/80 ${sizeClass[size]} ${
+        emphasized
+          ? "ring-2 ring-emerald-500/45 shadow-[0_8px_24px_-6px_rgba(16,185,129,0.35)] ring-offset-2 ring-offset-white"
+          : ""
       } ${className}`.trim()}
       aria-hidden
     >
@@ -86,7 +84,6 @@ export function SportStickerStrip({ className = "" }: { className?: string }) {
         <SportSticker
           key={s.id}
           emoji={s.sticker}
-          imageSrc={assetPath(`/marketing/icons/${s.iconFile}`)}
           size="sm"
           emphasized={s.isLiveExperience}
           title={s.label}

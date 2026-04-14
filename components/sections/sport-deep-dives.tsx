@@ -4,7 +4,6 @@ import Link from "next/link";
 import { MotionReveal } from "@/components/motion-reveal";
 import { SportSticker, SportStickerStrip } from "@/components/sport-sticker";
 import { courtSportEntries } from "@/court-sport-marketing";
-import { assetPath } from "@/brand-marketing";
 
 export function SportDeepDives() {
   return (
@@ -41,7 +40,6 @@ export function SportDeepDives() {
                   <div className="flex items-start gap-4">
                     <SportSticker
                       emoji={sport.sticker}
-                      imageSrc={assetPath(`/marketing/icons/${sport.iconFile}`)}
                       size="xl"
                       emphasized={sport.isLiveExperience}
                       title={sport.label}

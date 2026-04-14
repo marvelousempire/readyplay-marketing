@@ -69,13 +69,38 @@ export function Hero() {
               <SportStickerStrip />
             </motion.div>
           </div>
-          <div className="flex justify-center md:justify-end">
-            <div className="rounded-[2.5rem] bg-white/50 p-3 shadow-sm ring-1 ring-white/80 backdrop-blur-sm md:p-4">
-              <IPhoneMockup
-                className="md:justify-self-end"
-                imageSrc={assetPath("/marketing/hero-device.png")}
-                imageAlt="READYPLAY in-app court and score tap art"
-              />
+          <div className="relative flex min-h-[min(70vh,520px)] justify-center md:justify-end md:min-h-0">
+            {/* Soft ambient fill so the hero never reads as a “black slab” beside the copy */}
+            <div
+              className="pointer-events-none absolute inset-0 -z-0 md:-right-12 md:left-auto md:w-[min(100%,420px)]"
+              aria-hidden
+            >
+              <div className="absolute left-1/2 top-[18%] h-[min(72vw,340px)] w-[min(72vw,340px)] -translate-x-1/2 rounded-full bg-gradient-to-br from-sky-200/50 via-violet-200/35 to-amber-100/40 blur-3xl" />
+              <div className="absolute bottom-[8%] right-[6%] h-40 w-40 rounded-full bg-emerald-200/25 blur-2xl" />
+              <div className="absolute right-[12%] top-[38%] h-24 w-24 rounded-full bg-white/60 blur-xl" />
+            </div>
+
+            <div className="relative z-10 flex w-full max-w-[320px] flex-col items-center gap-5 md:max-w-none md:items-end">
+              <div className="flex flex-wrap items-center justify-center gap-2 md:justify-end">
+                <span className="rounded-full border border-white/90 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-600 shadow-sm backdrop-blur-sm">
+                  Live tap board
+                </span>
+                <span className="rounded-full border border-emerald-200/80 bg-emerald-50/90 px-3 py-1 text-[11px] font-semibold text-emerald-900 shadow-sm">
+                  🏀 Deepest on hoops
+                </span>
+              </div>
+
+              <div className="rounded-[2.5rem] bg-white/55 p-3 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.2)] ring-1 ring-white/90 backdrop-blur-md md:p-4">
+                <IPhoneMockup
+                  className="md:justify-self-end"
+                  imageSrc={assetPath("/marketing/hero-device.png")}
+                  imageAlt="READYPLAY in-app court and score tap art"
+                />
+              </div>
+
+              <p className="max-w-[260px] text-center text-[13px] leading-snug text-neutral-600 md:text-right">
+                In-app art from a real pickup—sun, lines, and the score sheet you actually tap.
+              </p>
             </div>
           </div>
         </div>
