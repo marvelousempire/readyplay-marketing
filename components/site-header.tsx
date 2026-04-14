@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 /** Mobile hamburger: every label uses at least two words for scan clarity. */
@@ -50,8 +51,21 @@ function IconClose({ className = "h-5 w-5" }: { className?: string }) {
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  /** Close drawer on real route changes (e.g. / → /changelog/) without putting onClick on <Link>. */
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  /** Hash-only navigations on the home page still need to dismiss the menu. */
+  useEffect(() => {
+    const onHash = () => setMenuOpen(false);
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 8);
@@ -123,13 +137,14 @@ export function SiteHeader() {
             >
               {menuOpen ? <IconClose /> : <IconMenu />}
             </button>
-            <Link
-              href="/#cta"
-              className="rounded-full bg-neutral-950 px-3 py-2 text-xs font-medium text-white transition hover:bg-neutral-800 md:px-4 md:text-sm"
-              onClick={() => setMenuOpen(false)}
-            >
-              Early access
-            </Link>
+            <span className="inline-flex" onClickCapture={() => setMenuOpen(false)}>
+              <Link
+                href="/#cta"
+                className="rounded-full bg-neutral-950 px-3 py-2 text-xs font-medium text-white transition hover:bg-neutral-800 md:px-4 md:text-sm"
+              >
+                Early access
+              </Link>
+            </span>
           </div>
 
           <nav
@@ -140,13 +155,12 @@ export function SiteHeader() {
             aria-hidden={!menuOpen}
             aria-label="Mobile"
           >
-            <ul className="flex flex-col px-4 py-3 pb-5">
+            <ul className="flex flex-col px-4 py-3 pb-5" onClickCapture={() => setMenuOpen(false)}>
               {links.map((l) => (
                 <li key={l.href} className="border-b border-neutral-200/80 last:border-0">
                   <Link
                     href={l.href}
                     className="block py-3.5 text-[15px] font-medium text-neutral-800 transition hover:text-neutral-950"
-                    onClick={() => setMenuOpen(false)}
                   >
                     {l.label}
                   </Link>
