@@ -26,8 +26,10 @@ export function ScreenshotsStrip({ items }: { items: ScreenshotStripItem[] }) {
             Built for the sideline.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-neutral-600">
-            Real captures from Simulator or device replace placeholders automatically when you drop
-            PNGs into <code className="rounded bg-neutral-100 px-1.5 py-0.5 text-sm">web/public/marketing/</code>.
+            Shipped in-app court and score-tap art (same pixels as the iOS asset catalog). Swap in
+            Simulator screenshots anytime by replacing files under{" "}
+            <code className="rounded bg-neutral-100 px-1.5 py-0.5 text-sm">web/public/marketing/</code>{" "}
+            and rebuilding.
           </p>
         </MotionReveal>
 

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { IPhoneMockup } from "@/components/iphone-mockup";
-import { brand } from "@/brand-marketing";
+import { assetPath, brand } from "@/brand-marketing";
 
 export function Hero() {
   return (
@@ -60,7 +60,11 @@ export function Hero() {
             </Link>
           </motion.div>
         </div>
-        <IPhoneMockup className="md:justify-self-end" />
+        <IPhoneMockup
+          className="md:justify-self-end"
+          imageSrc={assetPath("/marketing/hero-device.png")}
+          imageAlt="READYPLAY in-app court and score tap art"
+        />
       </div>
     </section>
   );

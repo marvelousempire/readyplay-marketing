@@ -11,22 +11,22 @@ export type MarketingScreenshotDef = {
 export const marketingScreenshotManifest: MarketingScreenshotDef[] = [
   {
     file: "play-sites.png",
-    alt: "READYPLAY Play Sites map or list anchored to real parks",
-    caption: `${brand.sitesScreenTitle} — real pins, not a vague “meet at the park” thread.`,
+    alt: "READYPLAY outdoor-style full court art used in the score flow",
+    caption: `${brand.sitesScreenTitle} pins real parks—in the app you pick from map or list; games stay anchored to a real pin.`,
   },
   {
     file: "live-game-tapboard.png",
-    alt: "READYPLAY live game board with player tiles and score",
-    caption: "Live board — tap players to score, fouls on every tile, sideline speed.",
+    alt: "READYPLAY full-court score tap art from the shipped iOS app",
+    caption: "Tap-to-score lives on a live board with player tiles and fouls—this is the same court system players see in-game.",
   },
   {
     file: "leaderboard.png",
-    alt: "READYPLAY home leaderboards and streak-friendly stats",
-    caption: "Leaderboards — home boards, streaks, and bragging rights that stick.",
+    alt: "READYPLAY shot-zone overlay art from the score tap experience",
+    caption: "Shot-style nuance and splits—home leaderboards carry that same depth, not just total points.",
   },
   {
     file: "achievements.png",
-    alt: "READYPLAY Achievement Hall and prestige-style progress",
-    caption: "Achievement Hall — challenges and prestige layered on real games.",
+    alt: "READYPLAY full-court highlight overlay from in-app score art",
+    caption: "Achievement Hall and prestige—clutch stretches and challenges stack on finished, reviewed games.",
   },
 ];
