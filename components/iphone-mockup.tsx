@@ -25,7 +25,7 @@ export function IPhoneMockup({
   imageAlt = "READYPLAY app preview",
   className = "",
   frame = "light",
-  imageObjectPosition = "left top",
+  imageObjectPosition = "50% 42%",
 }: IPhoneMockupProps) {
   const frameShell =
     frame === "light"
