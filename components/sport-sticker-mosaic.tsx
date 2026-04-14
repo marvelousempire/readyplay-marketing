@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { SportSticker } from "@/components/sport-sticker";
 import { courtSportEntries, mosaicExtraStickers } from "@/court-sport-marketing";
+import { assetPath } from "@/brand-marketing";
 
 type Slot = {
-  sticker: string;
+  emoji: string;
+  imageSrc?: string;
   leftPct: number;
   topPct: number;
   size: number;
@@ -13,10 +15,17 @@ type Slot = {
   delay: number;
 };
 
-/** Deterministic “sticker field” inspired by `LaunchSportGlyphBackdrop` + sport hub circles. */
+type PoolItem = { emoji: string; imageSrc?: string };
+
+/** Deterministic "sticker field" inspired by `LaunchSportGlyphBackdrop` + sport hub circles. */
 function buildSlots(): Slot[] {
-  const sportStickers = courtSportEntries.map((s) => s.sticker);
-  const pool = [...sportStickers, ...mosaicExtraStickers];
+  const sportItems: PoolItem[] = courtSportEntries.map((s) => ({
+    emoji: s.sticker,
+    imageSrc: assetPath(`/marketing/icons/${s.iconFile}`),
+  }));
+  const extraItems: PoolItem[] = mosaicExtraStickers.map((e) => ({ emoji: e }));
+  const pool: PoolItem[] = [...sportItems, ...extraItems];
+
   const cols = 10;
   const rows = 6;
   const slots: Slot[] = [];
@@ -30,8 +39,10 @@ function buildSlots(): Slot[] {
       const tier = i % 7;
       const size =
         tier === 2 || tier === 0 ? 34 + (i % 4) * 5 : tier === 3 || tier === 4 ? 22 + (i % 5) * 3 : 26 + (i % 3) * 4;
+      const item = pool[i % pool.length]!;
       slots.push({
-        sticker: pool[i % pool.length]!,
+        emoji: item.emoji,
+        imageSrc: item.imageSrc,
         leftPct: Math.min(96, Math.max(2, baseX + jitterX)),
         topPct: Math.min(96, Math.max(2, baseY + jitterY)),
         size,
@@ -76,7 +87,8 @@ export function SportStickerMosaic() {
             }}
           >
             <SportSticker
-              emoji={s.sticker}
+              emoji={s.emoji}
+              imageSrc={s.imageSrc}
               size="xs"
               className="border border-white/60 bg-white/45 shadow-[0_6px_20px_rgba(0,0,0,0.06)] backdrop-blur-[2px]"
             />

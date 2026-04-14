@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { IPhoneMockup } from "@/components/iphone-mockup";
 import { SportStickerMosaic } from "@/components/sport-sticker-mosaic";
+import { SportStickerStrip } from "@/components/sport-sticker";
 import { assetPath, brand } from "@/brand-marketing";
 
 export function Hero() {
@@ -58,6 +59,14 @@ export function Hero() {
               >
                 Explore every sport
               </Link>
+            </motion.div>
+            <motion.div
+              className="mt-8 border-t border-neutral-200/60 pt-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.24 }}
+            >
+              <SportStickerStrip />
             </motion.div>
           </div>
           <div className="flex justify-center md:justify-end">

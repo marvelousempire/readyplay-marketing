@@ -3,34 +3,34 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-/** Full list for small viewports (hamburger) and for parity with on-page anchors. */
+/** Mobile hamburger: every label uses at least two words for scan clarity. */
 const links = [
-  { href: "/#sports", label: "Sports" },
+  { href: "/#sports", label: "All sports" },
   { href: "/#every-sport", label: "Each sport" },
-  { href: "/#leaderboards", label: "Boards" },
-  { href: "/#achievements", label: "Hall" },
-  { href: "/#earn", label: "Earn" },
-  { href: "/#parts", label: "Platform" },
-  { href: "/#how", label: "How" },
-  { href: "/#features", label: "Features" },
-  { href: "/#horizon", label: "Horizon" },
-  { href: "/#identity", label: "Identity" },
-  { href: "/#screens", label: "Screens" },
-  { href: "/changelog/", label: "Changelog" },
-  { href: "/#cta", label: "Waitlist" },
+  { href: "/#leaderboards", label: "Score boards" },
+  { href: "/#achievements", label: "Achievement hall" },
+  { href: "/#earn", label: "Credits & earn" },
+  { href: "/#parts", label: "Product platform" },
+  { href: "/#how", label: "How it works" },
+  { href: "/#features", label: "Key features" },
+  { href: "/#horizon", label: "Future horizon" },
+  { href: "/#identity", label: "Digital identity" },
+  { href: "/#screens", label: "Screen gallery" },
+  { href: "/changelog/", label: "Release notes" },
+  { href: "/#cta", label: "Join waitlist" },
 ];
 
 /**
- * Desktop primary: fewer top-level items. Neighbor sections on the home page stay one scroll away
- * (e.g. Play & earn → leaderboards; hall and earn follow on the page).
+ * Desktop primary: fewer top-level items; every visible label is at least two words.
+ * Neighbor sections stay one scroll away on the home page.
  */
 const desktopPrimaryLinks = [
-  { href: "/#sports", label: "Sports" },
+  { href: "/#sports", label: "All sports" },
   { href: "/#leaderboards", label: "Play & earn" },
-  { href: "/#parts", label: "Product" },
-  { href: "/#identity", label: "Identity" },
-  { href: "/#screens", label: "Screens" },
-  { href: "/changelog/", label: "Changelog" },
+  { href: "/#parts", label: "Product platform" },
+  { href: "/#identity", label: "Digital identity" },
+  { href: "/#screens", label: "Screen gallery" },
+  { href: "/changelog/", label: "Release notes" },
 ] as const;
 
 function IconMenu({ className = "h-5 w-5" }: { className?: string }) {

@@ -54,7 +54,7 @@ export default function ChangelogPage() {
       <div className="mx-auto max-w-3xl px-6 pb-24 pt-24 md:px-10 md:pt-28">
         <p className="text-sm font-medium text-neutral-500">
           <Link href="/" className="transition hover:text-neutral-950">
-            ← Home
+            ← Site home
           </Link>
         </p>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight text-neutral-950 md:text-4xl">

@@ -1,18 +1,18 @@
 import Link from "next/link";
 
 const anchors = [
-  { href: "/#sports", label: "Sports" },
+  { href: "/#sports", label: "All sports" },
   { href: "/#every-sport", label: "Each sport" },
-  { href: "/#leaderboards", label: "Boards" },
-  { href: "/#achievements", label: "Hall" },
-  { href: "/#earn", label: "Earn" },
-  { href: "/#parts", label: "Platform" },
-  { href: "/#how", label: "How" },
-  { href: "/#features", label: "Features" },
-  { href: "/#horizon", label: "Horizon" },
-  { href: "/#identity", label: "Identity" },
-  { href: "/#screens", label: "Screens" },
-  { href: "/#cta", label: "Waitlist" },
+  { href: "/#leaderboards", label: "Score boards" },
+  { href: "/#achievements", label: "Achievement hall" },
+  { href: "/#earn", label: "Credits & earn" },
+  { href: "/#parts", label: "Product platform" },
+  { href: "/#how", label: "How it works" },
+  { href: "/#features", label: "Key features" },
+  { href: "/#horizon", label: "Future horizon" },
+  { href: "/#identity", label: "Digital identity" },
+  { href: "/#screens", label: "Screen gallery" },
+  { href: "/#cta", label: "Join waitlist" },
 ];
 
 export function SiteFooter() {
@@ -28,7 +28,7 @@ export function SiteFooter() {
           <p>© {new Date().getFullYear()} READYPLAY</p>
           <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <Link href="/" className="transition hover:text-neutral-950">
-              Home
+              Site home
             </Link>
             {anchors.map((a) => (
               <Link key={a.href} href={a.href} className="transition hover:text-neutral-950">
@@ -36,7 +36,7 @@ export function SiteFooter() {
               </Link>
             ))}
             <Link href="/changelog/" className="transition hover:text-neutral-950">
-              Changelog
+              Release notes
             </Link>
           </nav>
         </div>

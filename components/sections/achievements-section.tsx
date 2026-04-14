@@ -20,14 +20,15 @@ export function AchievementsSection() {
             Challenges and prestige on top of real games.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-neutral-600">
-            <strong className="font-semibold text-neutral-800">Achievement Hall</strong> and catalog-backed
-            achievements ship in the app with sport strips—basketball carries the deepest catalog
-            today while other sports gain rows as each shell matures.
+            <strong className="font-semibold text-neutral-800">Achievement Hall</strong> ships in the
+            app with a full catalog—profile badges, park medals, milestone trophies, timed challenges,
+            activity streaks, prestige levels, board honors, and shareable calling cards. Basketball
+            carries the deepest catalog today; other sports gain rows as each shell matures.
           </p>
           <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
-            Prestige levels, challenges, and streaks come from{" "}
-            <code className="rounded bg-neutral-100 px-1.5 py-0.5 text-sm">GamificationService</code>{" "}
-            snapshots so the flex is earned on court, not from grinding fake tasks.
+            Every badge is grounded in finished, reviewed games—clutch stretches, consecutive win
+            runs, and community contributions—so the flex is earned on court, not from grinding fake
+            tasks.
           </p>
           <SportStickerStrip className="mt-8 justify-start" />
         </MotionReveal>

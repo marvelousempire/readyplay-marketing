@@ -2,16 +2,22 @@
  * Court sport grid — keep in sync with `CourtSport` in `Court.swift` (order, labels, live flag, strip labels).
  *
  * **iOS app icons:** `SportSwitchStrip` and the sport hub use `Image(systemName: CourtSport.icon)` (SF Symbols).
- * **Web “stickers”:** `sticker` is a high-DPI emoji stand-in for GitHub Pages (no SF Symbols webfont). To match
- * the app pixel-for-pixel, export small PNGs from SF Symbols.app and replace emoji in this file.
+ * **Web icons:** Drop PNG exports from SF Symbols.app into `public/marketing/icons/` using the filenames in
+ *   `iconFile` below. Until the file exists, the web falls back to the `sticker` emoji.
+ *   Export steps: SF Symbols app → search symbol → File → Export → PNG @ 3x, ~72pt, any weight.
  */
 
 export type CourtSportMarketing = {
   id: string;
   label: string;
   stripLabel: string;
-  /** High-quality emoji “sticker” used in marketing mosaic (matches SportSwitchStrip spirit). */
+  /** Emoji fallback shown when the SF Symbol PNG hasn't been dropped in yet. */
   sticker: string;
+  /**
+   * Filename under `public/marketing/icons/` for the exported SF Symbol PNG.
+   * Matches `CourtSport.icon` in Court.swift exactly so it's easy to track.
+   */
+  iconFile: string;
   /** `CourtSport.isPrimaryAppExperienceLive` — only basketball today. */
   isLiveExperience: boolean;
   venuePlural: string;
@@ -28,6 +34,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Basketball",
     stripLabel: "Hoops",
     sticker: "🏀",
+    iconFile: "basketball.fill.png",
     isLiveExperience: true,
     venuePlural: "courts",
     sessionPlural: "games",
@@ -39,6 +46,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Volleyball",
     stripLabel: "Volley",
     sticker: "🏐",
+    iconFile: "volleyball.fill.png",
     isLiveExperience: false,
     venuePlural: "courts",
     sessionPlural: "matches",
@@ -50,6 +58,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Tennis",
     stripLabel: "Tennis",
     sticker: "🎾",
+    iconFile: "tennis.racket.png",
     isLiveExperience: false,
     venuePlural: "courts",
     sessionPlural: "matches",
@@ -61,6 +70,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Padel",
     stripLabel: "Padel",
     sticker: "🏟️",
+    iconFile: "sportscourt.circle.fill.png",
     isLiveExperience: false,
     venuePlural: "courts",
     sessionPlural: "matches",
@@ -72,6 +82,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Pickleball",
     stripLabel: "Pickle",
     sticker: "🏓",
+    iconFile: "circle.grid.cross.fill.png",
     isLiveExperience: false,
     venuePlural: "courts",
     sessionPlural: "matches",
@@ -83,6 +94,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Soccer",
     stripLabel: "Soccer",
     sticker: "⚽",
+    iconFile: "soccerball.png",
     isLiveExperience: false,
     venuePlural: "pitches",
     sessionPlural: "games",
@@ -94,6 +106,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Baseball / Softball",
     stripLabel: "Diamond",
     sticker: "⚾",
+    iconFile: "baseball.fill.png",
     isLiveExperience: false,
     venuePlural: "diamonds",
     sessionPlural: "matches",
@@ -105,6 +118,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Flag Football",
     stripLabel: "Flag FB",
     sticker: "🏈",
+    iconFile: "flag.fill.png",
     isLiveExperience: false,
     venuePlural: "fields",
     sessionPlural: "games",
@@ -116,6 +130,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Track / Run",
     stripLabel: "Track",
     sticker: "🏃",
+    iconFile: "figure.run.png",
     isLiveExperience: false,
     venuePlural: "courses",
     sessionPlural: "games",
@@ -127,10 +142,11 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Pool",
     stripLabel: "Pool",
     sticker: "🏊",
+    iconFile: "figure.pool.swim.png",
     isLiveExperience: false,
     venuePlural: "pools",
     sessionPlural: "games",
-    hook: "Aquatics with the same “who showed up” truth.",
+    hook: "Aquatics with the same 'who showed up' truth.",
     body: "Pool sessions stay peer-verified; live vertical depth follows the sport roadmap.",
   },
   {
@@ -138,6 +154,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
     label: "Fishing",
     stripLabel: "Fish",
     sticker: "🎣",
+    iconFile: "figure.fishing.png",
     isLiveExperience: false,
     venuePlural: "spots",
     sessionPlural: "trips",
@@ -146,7 +163,7 @@ export const courtSportEntries: CourtSportMarketing[] = [
   },
 ];
 
-/** Extra “equipment” emoji to fill mosaic like `LaunchSportGlyphBackdrop` extra pool (decorative). */
+/** Extra "equipment" emoji to fill mosaic like `LaunchSportGlyphBackdrop` extra pool (decorative). */
 export const mosaicExtraStickers = [
   "⛹️",
   "🥇",

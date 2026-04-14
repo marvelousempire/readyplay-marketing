@@ -42,8 +42,8 @@ const steps = [
   },
   {
     n: "8",
-    title: "Lock fill-ins and paid flows (vision)",
-    body: "When paid flows ship, list availability, set pricing tiers, and run hires through Apple Pay and escrow—pickup stays free by default; paid scorekeepers and fill-ins are earned through trust and history, same as BrandCopy’s marketplace pitch.",
+    title: "Fill-ins and paid flows (vision)",
+    body: "When paid flows ship: list availability, set pricing tiers, and run hires through Apple Pay and escrow. Pickup stays free by default—paid scorekeepers and fill-ins are earned through the trust and history you build in steps 1–7.",
   },
 ];
 

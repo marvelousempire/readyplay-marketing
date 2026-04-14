@@ -18,7 +18,7 @@ const parts = [
   },
   {
     title: "Venues and leagues",
-    body: "Play Sites anchor runs to real courts. Create games, recruit with join requests, league standings, and discovery so Saturday starts on time instead of in seventeen “you coming?” texts.",
+    body: "Play Sites anchor runs to real courts. Create games, recruit with join requests, league standings, and discovery so Saturday starts on time instead of in seventeen 'you coming?' texts.",
   },
   {
     title: "Credits and roles",
@@ -50,7 +50,7 @@ export function PlatformParts() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-neutral-600">
             Seven surfaces—trust, live runs, reputation, places, credits, marketplace, and the feed
-            layer—so marketing matches how you talk about the full arc of the platform.
+            layer—working together across every sport you already play.
           </p>
           <SportStickerStrip className="mt-8" />
         </MotionReveal>

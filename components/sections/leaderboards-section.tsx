@@ -20,14 +20,15 @@ export function LeaderboardsSection() {
             Home boards that respect how you actually play.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-neutral-600">
-            The app ships a real <strong className="font-semibold text-neutral-800">LeaderboardView</strong>{" "}
-            on Home: streak-friendly stats, splits that go beyond total points, and social competition
-            tied to verified games—not an engagement algorithm.
+            Home ships a real leaderboard: scoring streaks, shot-style splits that go beyond total
+            points, and social competition tied to verified games—not an engagement algorithm. Scroll
+            through metrics like threes, layups, dunks, win streaks, and block grades, each ranked
+            against the people you actually play with.
           </p>
           <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
-            Cross-court public directories and fully networked “rank everyone everywhere” boards stay
-            on the roadmap; what you get today is trustworthy, sport-scoped boards that match pickup
-            culture.
+            Cross-court public directories and fully networked rank-everyone-everywhere boards are on
+            the roadmap. What you get today is trustworthy, sport-scoped standing that pickup culture
+            has never had before.
           </p>
           <SportStickerStrip className="mt-8 justify-start" />
         </MotionReveal>

@@ -27,10 +27,8 @@ export function ScreenshotsStrip({ items }: { items: ScreenshotStripItem[] }) {
             Built for the sideline.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-neutral-600">
-            Shipped in-app court and score-tap art (same pixels as the iOS asset catalog). Swap in
-            Simulator screenshots anytime by replacing files under{" "}
-            <code className="rounded bg-neutral-100 px-1.5 py-0.5 text-sm">web/public/marketing/</code>{" "}
-            and rebuilding.
+            A closer look at the screens players and organizers use most—from the live tap board to
+            the leaderboard after the run.
           </p>
           <SportStickerStrip className="mt-6" />
         </MotionReveal>

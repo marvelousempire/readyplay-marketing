@@ -10,6 +10,7 @@ import { LeaderboardsSection } from "@/components/sections/leaderboards-section"
 import { PlatformHorizon } from "@/components/sections/platform-horizon";
 import { PlatformParts } from "@/components/sections/platform-parts";
 import { Problem } from "@/components/sections/problem";
+import { ProfileSection } from "@/components/sections/profile-section";
 import { Screenshots } from "@/components/sections/screenshots";
 import { Solution } from "@/components/sections/solution";
 import { SportDeepDives } from "@/components/sections/sport-deep-dives";
@@ -23,12 +24,13 @@ export default function HomePage() {
       <SportDeepDives />
       <Problem />
       <Solution />
+      <FeatureHighlights />
       <LeaderboardsSection />
       <AchievementsSection />
+      <ProfileSection />
       <EarnSection />
       <HowItWorks />
       <PlatformParts />
-      <FeatureHighlights />
       <IdentityRecord />
       <PlatformHorizon />
       <Screenshots />
