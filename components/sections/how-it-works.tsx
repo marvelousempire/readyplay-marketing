@@ -39,6 +39,11 @@ const steps = [
     title: "Leaderboards, achievements, credits",
     body: "Home boards and Achievement Hall echo the run. Credits recognize roles like scorekeeping—the bench economy grows from real games.",
   },
+  {
+    n: "8",
+    title: "Lock fill-ins and paid flows (vision)",
+    body: "When paid flows ship, list availability, set pricing tiers, and run hires through Apple Pay and escrow—pickup stays free by default; paid scorekeepers and fill-ins are earned through trust and history, same as BrandCopy’s marketplace pitch.",
+  },
 ];
 
 export function HowItWorks() {
@@ -56,8 +61,9 @@ export function HowItWorks() {
             From pin to permanent record.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-neutral-600">
-            Seven beats that mirror how organizers, scorekeepers, and players already move on the
-            sideline—plus the pipeline where paid fill-ins and instant booking land next.
+            Eight beats that mirror how organizers, scorekeepers, and players already move on the
+            sideline—including the marketplace layer we describe in product voice even as it lands
+            in releases.
           </p>
         </MotionReveal>
 

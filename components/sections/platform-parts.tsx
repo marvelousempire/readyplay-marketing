@@ -27,6 +27,10 @@ const parts = [
     title: "The marketplace layer",
     body: "On-demand play in the Uber / TaskRabbit spirit: book players and fill-in roles, availability and pricing tiers, Apple Pay and escrow when paid flows ship, cancellations that respect everyone’s time—free by default, paid listings earned through trust and history.",
   },
+  {
+    title: "Surfaces and feeds",
+    body: "Newspaper-style digest, spectator live video, follow, messaging, and waitlist queues—how you hear about runs, watch from afar, and stay in touch once the graph is dense enough to deserve them.",
+  },
 ];
 
 export function PlatformParts() {
@@ -44,8 +48,8 @@ export function PlatformParts() {
             Platform, not a single feature.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-neutral-600">
-            Six surfaces players feel every week—trust, live runs, reputation, places, economy, and
-            the hiring layer we are marching toward.
+            Seven surfaces—trust, live runs, reputation, places, credits, marketplace, and the feed
+            layer—so marketing matches how you talk about the full arc of the platform.
           </p>
         </MotionReveal>
 
@@ -60,12 +64,6 @@ export function PlatformParts() {
           ))}
         </div>
 
-        <MotionReveal className="mt-10" delay={0.2}>
-          <p className="text-center text-sm text-neutral-500">
-            Surfaces on the roadmap—Newspaper digest, spectator live video, messaging, follow, and
-            waitlist queues—land as the feed matures.
-          </p>
-        </MotionReveal>
       </div>
     </section>
   );
