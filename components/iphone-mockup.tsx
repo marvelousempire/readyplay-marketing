@@ -12,6 +12,11 @@ type IPhoneMockupProps = {
   className?: string;
   /** `light` = soft metallic bezel (marketing hero). `dark` = OLED-style frame. */
   frame?: "light" | "dark";
+  /**
+   * Where to anchor `object-cover` (hero art is often left-heavy; center can leave a dark margin
+   * on one side depending on the PNG).
+   */
+  imageObjectPosition?: string;
 };
 
 export function IPhoneMockup({
@@ -20,6 +25,7 @@ export function IPhoneMockup({
   imageAlt = "READYPLAY app preview",
   className = "",
   frame = "light",
+  imageObjectPosition = "left top",
 }: IPhoneMockupProps) {
   const frameShell =
     frame === "light"
@@ -27,7 +33,7 @@ export function IPhoneMockup({
       : "rounded-[2.4rem] border border-neutral-200 bg-neutral-900 p-[10px] shadow-[0_32px_80px_-24px_rgba(0,0,0,0.35)]";
   const islandClass =
     frame === "light"
-      ? "bg-neutral-800/85 shadow-inner shadow-white/10"
+      ? "bg-neutral-600/90 shadow-inner shadow-white/15 ring-1 ring-white/10"
       : "bg-neutral-950";
   const screenMat =
     frame === "light"
@@ -58,7 +64,8 @@ export function IPhoneMockup({
                 src={imageSrc}
                 alt={imageAlt}
                 fill
-                className="object-cover object-center"
+                className="object-cover"
+                style={{ objectPosition: imageObjectPosition }}
                 sizes="280px"
                 priority
               />
