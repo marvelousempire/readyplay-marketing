@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+/** Full list for small viewports (hamburger) and for parity with on-page anchors. */
 const links = [
   { href: "/#sports", label: "Sports" },
   { href: "/#every-sport", label: "Each sport" },
@@ -18,6 +19,19 @@ const links = [
   { href: "/changelog/", label: "Changelog" },
   { href: "/#cta", label: "Waitlist" },
 ];
+
+/**
+ * Desktop primary: fewer top-level items. Neighbor sections on the home page stay one scroll away
+ * (e.g. Play & earn → leaderboards; hall and earn follow on the page).
+ */
+const desktopPrimaryLinks = [
+  { href: "/#sports", label: "Sports" },
+  { href: "/#leaderboards", label: "Play & earn" },
+  { href: "/#parts", label: "Product" },
+  { href: "/#identity", label: "Identity" },
+  { href: "/#screens", label: "Screens" },
+  { href: "/changelog/", label: "Changelog" },
+] as const;
 
 function IconMenu({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -84,10 +98,10 @@ export function SiteHeader() {
           </Link>
 
           <nav
-            className="hidden min-w-0 flex-1 flex-wrap items-center justify-end gap-x-5 gap-y-1 text-xs text-neutral-600 lg:flex xl:gap-x-6 xl:text-sm"
+            className="hidden min-w-0 flex-1 flex-wrap items-center justify-end gap-x-4 gap-y-1 text-xs text-neutral-600 lg:flex xl:gap-x-5 xl:text-sm"
             aria-label="Primary"
           >
-            {links.map((l) => (
+            {desktopPrimaryLinks.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
