@@ -31,10 +31,6 @@ export function IPhoneMockup({
     frame === "light"
       ? "rounded-[2.4rem] border border-white/95 bg-gradient-to-b from-neutral-100 via-neutral-200/95 to-neutral-300/90 p-[10px] shadow-[0_28px_72px_-20px_rgba(15,23,42,0.28)]"
       : "rounded-[2.4rem] border border-neutral-200 bg-neutral-900 p-[10px] shadow-[0_32px_80px_-24px_rgba(0,0,0,0.35)]";
-  const islandClass =
-    frame === "light"
-      ? "bg-neutral-600/90 shadow-inner shadow-white/15 ring-1 ring-white/10"
-      : "bg-neutral-950";
   const screenMat =
     frame === "light"
       ? "bg-gradient-to-b from-sky-50/80 via-neutral-50 to-neutral-100"
@@ -57,7 +53,6 @@ export function IPhoneMockup({
         }}
       >
         <div className={`relative aspect-[9/19.5] ${frameShell}`}>
-          <div className={`absolute left-1/2 top-3 z-10 h-6 w-24 -translate-x-1/2 rounded-full ${islandClass}`} />
           <div className={`relative h-full w-full overflow-hidden rounded-[1.85rem] ${screenMat}`}>
             {imageSrc ? (
               <Image
