@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { MotionReveal } from "@/components/motion-reveal";
-import { courtSports } from "@/brand-marketing";
+import { SportSticker } from "@/components/sport-sticker";
+import { courtSportEntries } from "@/court-sport-marketing";
 
 export function SportsStrip() {
   return (
@@ -20,21 +22,34 @@ export function SportsStrip() {
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-neutral-600 md:text-base">
             Basketball is the deepest live vertical today—shot nuance, rich boards, and leaderboards
             that match how serious pickup is played. Other sports ramp at different depths on the
-            same trusted rails.
+            same trusted rails. Tap a sticker to jump to that sport’s story.
           </p>
         </MotionReveal>
 
         <MotionReveal className="mt-10" delay={0.06}>
-          <ul className="flex flex-wrap gap-2 md:gap-2.5">
-            {courtSports.map((name) => (
-              <li
-                key={name}
-                className="rounded-full border border-neutral-200 bg-neutral-50 px-3.5 py-1.5 text-[13px] font-medium text-neutral-800 md:text-sm"
-              >
-                {name}
+          <ul className="flex flex-wrap items-center gap-2.5 md:gap-3">
+            {courtSportEntries.map((sport) => (
+              <li key={sport.id}>
+                <Link
+                  href={`#sport-${sport.id}`}
+                  className="inline-flex items-center gap-2.5 rounded-full border border-neutral-200 bg-neutral-50/90 py-1.5 pl-1.5 pr-3.5 text-[13px] font-medium text-neutral-800 transition hover:border-neutral-300 hover:bg-white md:text-sm"
+                >
+                  <SportSticker
+                    emoji={sport.sticker}
+                    size="sm"
+                    emphasized={sport.isLiveExperience}
+                    title={sport.label}
+                  />
+                  {sport.label}
+                </Link>
               </li>
             ))}
           </ul>
+          <p className="mt-4 text-sm text-neutral-500">
+            <Link href="#every-sport" className="font-medium text-brand hover:text-brand-dark">
+              Read every sport in full →
+            </Link>
+          </p>
         </MotionReveal>
       </div>
     </section>

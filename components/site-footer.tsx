@@ -2,8 +2,12 @@ import Link from "next/link";
 
 const anchors = [
   { href: "/#sports", label: "Sports" },
+  { href: "/#every-sport", label: "Each sport" },
+  { href: "/#leaderboards", label: "Boards" },
+  { href: "/#achievements", label: "Hall" },
+  { href: "/#earn", label: "Earn" },
   { href: "/#parts", label: "Platform" },
-  { href: "/#how", label: "How it works" },
+  { href: "/#how", label: "How" },
   { href: "/#features", label: "Features" },
   { href: "/#horizon", label: "Horizon" },
   { href: "/#identity", label: "Identity" },

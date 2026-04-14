@@ -27,21 +27,6 @@ export const brand = {
   sitesScreenTitle: "Play Sites",
 } as const;
 
-/** CourtSport.display labels — keep in sync with Court.swift `CourtSport.label`. */
-export const courtSports = [
-  "Basketball",
-  "Volleyball",
-  "Tennis",
-  "Padel",
-  "Pickleball",
-  "Soccer",
-  "Baseball / Softball",
-  "Flag Football",
-  "Track / Run",
-  "Pool",
-  "Fishing",
-] as const;
-
 export function assetPath(relative: string): string {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   if (!relative.startsWith("/")) return `${base}/${relative}`;

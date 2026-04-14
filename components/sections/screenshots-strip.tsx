@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { MotionReveal } from "@/components/motion-reveal";
+import { SportStickerStrip } from "@/components/sport-sticker";
 import { assetPath } from "@/brand-marketing";
 
 export type ScreenshotStripItem = {
@@ -31,6 +32,7 @@ export function ScreenshotsStrip({ items }: { items: ScreenshotStripItem[] }) {
             <code className="rounded bg-neutral-100 px-1.5 py-0.5 text-sm">web/public/marketing/</code>{" "}
             and rebuilding.
           </p>
+          <SportStickerStrip className="mt-6" />
         </MotionReveal>
 
         <MotionReveal className="mt-14" delay={0.08}>

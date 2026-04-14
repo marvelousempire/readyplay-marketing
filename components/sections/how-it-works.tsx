@@ -1,6 +1,7 @@
 "use client";
 
 import { MotionReveal } from "@/components/motion-reveal";
+import { SportStickerStrip } from "@/components/sport-sticker";
 import { brand } from "@/brand-marketing";
 
 const steps = [
@@ -65,6 +66,7 @@ export function HowItWorks() {
             sideline—including the marketplace layer we describe in product voice even as it lands
             in releases.
           </p>
+          <SportStickerStrip className="mt-8" />
         </MotionReveal>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

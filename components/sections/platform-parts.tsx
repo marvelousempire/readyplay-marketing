@@ -1,6 +1,7 @@
 "use client";
 
 import { MotionReveal } from "@/components/motion-reveal";
+import { SportStickerStrip } from "@/components/sport-sticker";
 
 const parts = [
   {
@@ -51,6 +52,7 @@ export function PlatformParts() {
             Seven surfaces—trust, live runs, reputation, places, credits, marketplace, and the feed
             layer—so marketing matches how you talk about the full arc of the platform.
           </p>
+          <SportStickerStrip className="mt-8" />
         </MotionReveal>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

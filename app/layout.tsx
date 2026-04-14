@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "READYPLAY — Multi-sport pickup, tap scorekeeping, real reputation",
   description:
-    "Peer-managed sports platform: Play Sites, tap-to-score live boards, leaderboards, Achievement Hall, credits for scorekeepers, and a marketplace vision for on-demand fill-ins. Basketball is the deepest live vertical today; more sports share the same shell.",
+    "Eleven sports on one engine—hero sticker mosaic, per-sport deep dives, tap-to-score live boards, home leaderboards, Achievement Hall, credits, and a marketplace path for paid fill-ins. Basketball ships deepest today.",
 };
 
 export default function RootLayout({

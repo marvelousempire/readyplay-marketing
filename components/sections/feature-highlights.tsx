@@ -4,12 +4,12 @@ import Image from "next/image";
 import { MotionReveal } from "@/components/motion-reveal";
 import { assetPath } from "@/brand-marketing";
 
+/** Three deep-dive columns only; leaderboards, achievements, and earn have their own sections. */
 const features: {
   kicker: string;
   title: string;
   body: string;
   reverse: boolean;
-  /** Raster under `public/marketing/` — same art pipeline as the iOS asset catalog. */
   image: string;
   imageAlt: string;
 }[] = [
@@ -20,22 +20,6 @@ const features: {
     reverse: false,
     image: "live-game-tapboard.png",
     imageAlt: "READYPLAY full-court score tap art from the shipped app",
-  },
-  {
-    kicker: "Reputation you keep",
-    title: "Leaderboards and Achievement Hall.",
-    body: "Home leaderboards, streak-friendly stats, Achievement Hall, challenges, and prestige—social competition that still traces back to verified games and peer reviews.",
-    reverse: true,
-    image: "leaderboard.png",
-    imageAlt: "READYPLAY shot-zone overlay from the in-game score experience",
-  },
-  {
-    kicker: "Bench economy",
-    title: "Credits for the roles that matter.",
-    body: "Earn credits for scorekeeping and other neutral work. StoreKit bundles are on deck when you want more in-app points—real rewards, not pretend crypto.",
-    reverse: false,
-    image: "feature-credits.png",
-    imageAlt: "READYPLAY clean court tile art used in score flows",
   },
   {
     kicker: "Live truth",
@@ -85,29 +69,20 @@ export function FeatureHighlights() {
             </div>
             <div className={f.reverse ? "md:order-1" : "md:order-2"}>
               <MotionReveal delay={0.12}>
-                <FeatureVisual
-                  imageSrc={assetPath(`/marketing/${f.image}`)}
-                  imageAlt={f.imageAlt}
-                />
+                <div className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden rounded-[2rem] bg-neutral-200 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.12)] ring-1 ring-neutral-200/80">
+                  <Image
+                    src={assetPath(`/marketing/${f.image}`)}
+                    alt={f.imageAlt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 512px"
+                  />
+                </div>
               </MotionReveal>
             </div>
           </div>
         </section>
       ))}
-    </div>
-  );
-}
-
-function FeatureVisual({ imageSrc, imageAlt }: { imageSrc: string; imageAlt: string }) {
-  return (
-    <div className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden rounded-[2rem] bg-neutral-200 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.12)] ring-1 ring-neutral-200/80">
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        fill
-        className="object-cover object-center"
-        sizes="(max-width: 768px) 100vw, 512px"
-      />
     </div>
   );
 }
