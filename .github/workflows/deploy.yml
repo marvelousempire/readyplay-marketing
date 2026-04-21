@@ -43,6 +43,13 @@ jobs:
       - name: Build static export
         env:
           NEXT_PUBLIC_BASE_PATH: ""
+          # TestFlight public invite URL — set as a repository variable
+          # (Settings → Secrets and variables → Actions → Variables →
+          # NEXT_PUBLIC_TESTFLIGHT_URL) so waitlist signups get a direct
+          # "Open TestFlight →" button after submit. Leave unset and the
+          # button hides, falling back to the plain "You're on the list"
+          # confirmation.
+          NEXT_PUBLIC_TESTFLIGHT_URL: ${{ vars.NEXT_PUBLIC_TESTFLIGHT_URL }}
         run: npm run build
 
       - name: Upload Pages artifact

@@ -7,6 +7,12 @@ import { MotionReveal } from "@/components/motion-reveal";
 // backend (e.g. `http://localhost:3000`) without editing this file.
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "https://api.readyplay.app";
 
+// Optional: TestFlight public invite URL (set as repo variable in GitHub
+// Actions so the build bakes it in). When present, the success state shows
+// a direct "Open TestFlight →" button so users can self-serve into the
+// beta immediately — no waiting for a manual invite email.
+const TESTFLIGHT_URL = process.env.NEXT_PUBLIC_TESTFLIGHT_URL;
+
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function WaitlistCta({ id }: { id?: string }) {
@@ -52,9 +58,35 @@ export function WaitlistCta({ id }: { id?: string }) {
 
         <MotionReveal delay={0.1}>
           {status === "success" ? (
-            <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-green-50 px-6 py-4 text-sm font-medium text-green-700 ring-1 ring-green-200">
-              <span>✓</span>
-              <span>You&apos;re on the list — we&apos;ll be in touch!</span>
+            <div className="mt-8 flex flex-col items-center gap-4">
+              <div className="inline-flex items-center gap-2 rounded-full bg-green-50 px-6 py-4 text-sm font-medium text-green-700 ring-1 ring-green-200">
+                <span>✓</span>
+                <span>
+                  {TESTFLIGHT_URL
+                    ? "You're in. Install the app with one tap."
+                    : "You're on the list — we'll be in touch!"}
+                </span>
+              </div>
+
+              {TESTFLIGHT_URL && (
+                <>
+                  <a
+                    href={TESTFLIGHT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1a77e5] px-8 py-4 text-[15px] font-semibold text-white shadow-sm transition hover:bg-[#1665c7]"
+                  >
+                    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-white/15 text-[11px] font-bold">
+                      T
+                    </span>
+                    Open TestFlight invite
+                    <span aria-hidden>→</span>
+                  </a>
+                  <p className="max-w-sm text-center text-xs text-neutral-500">
+                    Tap on your iPhone or iPad. TestFlight will install READYPLAY automatically — no App Store needed.
+                  </p>
+                </>
+              )}
             </div>
           ) : (
             <form
