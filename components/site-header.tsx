@@ -9,14 +9,16 @@ const links = [
   { href: "/#every-sport", label: "Each sport" },
   { href: "/#leaderboards", label: "Score boards" },
   { href: "/#achievements", label: "Achievement hall" },
-  { href: "/#earn", label: "Credits & earn" },
+  { href: "/#squad", label: "Book & earn" },
   { href: "/#parts", label: "Product platform" },
   { href: "/#how", label: "How it works" },
   { href: "/#features", label: "Key features" },
   { href: "/#horizon", label: "Future horizon" },
   { href: "/#identity", label: "Digital identity" },
   { href: "/#screens", label: "Screen gallery" },
+  { href: "/#leagues", label: "For leagues" },
   { href: "/changelog/", label: "Release notes" },
+  { href: "/beta/", label: "Beta testers" },
   { href: "/#cta", label: "Join waitlist" },
 ];
 
@@ -26,10 +28,12 @@ const links = [
  */
 const desktopPrimaryLinks = [
   { href: "/#sports", label: "All sports" },
-  { href: "/#leaderboards", label: "Play & earn" },
+  { href: "/#squad", label: "Book & earn" },
   { href: "/#parts", label: "Product platform" },
-  { href: "/#identity", label: "Digital identity" },
+  { href: "/#devices", label: "All devices" },
+  { href: "/#leagues", label: "For leagues" },
   { href: "/#screens", label: "Screen gallery" },
+  { href: "/beta/", label: "Beta testers" },
   { href: "/changelog/", label: "Release notes" },
 ] as const;
 

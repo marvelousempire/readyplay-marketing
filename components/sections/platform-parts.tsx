@@ -26,11 +26,11 @@ const parts = [
   },
   {
     title: "The marketplace layer",
-    body: "On-demand play in the Uber / TaskRabbit spirit: book players and fill-in roles, availability and pricing tiers, Apple Pay and escrow when paid flows ship, cancellations that respect everyone’s time—free by default, paid listings earned through trust and history.",
+    body: "On-demand play: post a spot, set your rate, or play for free — your call. General Managers can assemble and pay a full squad including a coach. Players list availability and pricing, GMs book and pay through the app. Apple Pay and escrow land when paid flows ship. Free by default; paid listings are earned through trust and history.",
   },
   {
     title: "Surfaces and feeds",
-    body: "Newspaper-style digest, spectator live video, follow, messaging, and waitlist queues—how you hear about runs, watch from afar, and stay in touch once the graph is dense enough to deserve them.",
+    body: "Newspaper-style digest, spectator live scoreboard, follow, messaging, and waitlist queues—how you hear about runs, watch from afar, and stay in touch once the graph is dense enough to deserve them.",
   },
 ];
 

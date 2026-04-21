@@ -1,9 +1,49 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useMotionValue, useSpring, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { MotionReveal } from "@/components/motion-reveal";
 import { SportStickerStrip } from "@/components/sport-sticker";
 import { assetPath } from "@/brand-marketing";
+
+const stats = [
+  { label: "Win streak", value: 8 },
+  { label: "Threes this season", value: 47 },
+  { label: "Blocks graded", value: 12 },
+];
+
+function AnimatedStat({ value, label }: { value: number; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const motionVal = useMotionValue(0);
+  const spring = useSpring(motionVal, { stiffness: 60, damping: 18 });
+  const displayRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const unsub = spring.on("change", (v) => {
+      if (displayRef.current) {
+        displayRef.current.textContent = Math.round(v).toString();
+      }
+    });
+    return unsub;
+  }, [spring]);
+
+  useEffect(() => {
+    if (isInView) {
+      motionVal.set(value);
+    }
+  }, [isInView, motionVal, value]);
+
+  return (
+    <div ref={ref} className="rounded-2xl bg-white px-5 py-4 ring-1 ring-neutral-200/80 text-center">
+      <p className="text-3xl font-bold tabular-nums text-neutral-950">
+        <span ref={displayRef}>0</span>
+      </p>
+      <p className="mt-1 text-xs font-medium text-neutral-500 uppercase tracking-wider">{label}</p>
+    </div>
+  );
+}
 
 export function LeaderboardsSection() {
   return (
@@ -17,19 +57,24 @@ export function LeaderboardsSection() {
             Leaderboards
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 md:text-5xl">
-            Home boards that respect how you actually play.
+            The person who locked down the paint all winter finally shows up here.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-neutral-600">
-            Home ships a real leaderboard: scoring streaks, shot-style splits that go beyond total
-            points, and social competition tied to verified games—not an engagement algorithm. Scroll
-            through metrics like threes, layups, dunks, win streaks, and block grades, each ranked
-            against the people you actually play with.
+            Home ships a real leaderboard — not followers, not likes. Scoring
+            streaks, shot-style splits, win runs, block grades. Ranked against
+            the specific people you actually play with at your court.
           </p>
           <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
-            Cross-court public directories and fully networked rank-everyone-everywhere boards are on
-            the roadmap. What you get today is trustworthy, sport-scoped standing that pickup culture
-            has never had before.
+            No engagement algorithm. No sponsored positions. The order is
+            determined by finished, reviewed games — and nothing else.
           </p>
+
+          <div className="mt-8 grid grid-cols-3 gap-3">
+            {stats.map((s) => (
+              <AnimatedStat key={s.label} value={s.value} label={s.label} />
+            ))}
+          </div>
+
           <SportStickerStrip className="mt-8 justify-start" />
         </MotionReveal>
         <MotionReveal delay={0.1}>

@@ -1,5 +1,10 @@
-# Static READYPLAY marketing site at repository root → GitHub Pages.
-# Intended for a dedicated PUBLIC repository (app source stays private elsewhere).
+# Static READYPLAY marketing site → GitHub Pages at https://readyplay.app/
+#
+# This repo is the source of truth for the marketing site. It is deliberately
+# public so GitHub Pages can serve it; the iOS/backend monorepo stays private.
+#
+# Custom domain is set to readyplay.app (public/CNAME), so NEXT_PUBLIC_BASE_PATH
+# is empty — assets resolve from the site root, not /readyplay-marketing/.
 
 name: READYPLAY marketing site (GitHub Pages)
 
@@ -37,7 +42,7 @@ jobs:
 
       - name: Build static export
         env:
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_BASE_PATH: ""
         run: npm run build
 
       - name: Upload Pages artifact

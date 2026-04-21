@@ -1,43 +1,79 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { MotionReveal } from "@/components/motion-reveal";
 import { assetPath } from "@/brand-marketing";
 
-/** Three deep-dive columns only; leaderboards, achievements, and earn have their own sections. */
 const features: {
   kicker: string;
   title: string;
   body: string;
-  reverse: boolean;
+  reverse: boolean; // layout direction for text/image columns
   image: string;
   imageAlt: string;
 }[] = [
   {
     kicker: "Sideline speed",
-    title: "Tap-to-score that keeps up with the run.",
-    body: "Tap players on the live board to log makes, misses, and fouls—every player tile carries a foul control so the book stays honest. Merged history, quick undo, and optional shot spot and styles where basketball (and future sports) demand nuance.",
+    title: "Tap to score. Never look up.",
+    body: "One tap per basket. The scorekeeper stays in the game — not buried in a menu. Fouls on every player tile, quick undo for honest mistakes, optional shot spots where the sport demands nuance. The book closes before the last player leaves the court.",
     reverse: false,
     image: "live-game-tapboard.png",
-    imageAlt: "READYPLAY full-court score tap art from the shipped app",
+    imageAlt: "READYPLAY full-court score tap board from the shipped app",
   },
   {
-    kicker: "Live truth",
-    title: "Spectators, broadcast, Watch.",
-    body: "CloudKit broadcast keeps followers on the same timeline as the scorekeeper. Apple Watch scoring and Live Activity put the clock and clutch moments where iOS already has your attention.",
+    kicker: "Live everywhere",
+    title: "Your friends couldn't make it. They're watching anyway.",
+    body: "CloudKit broadcasts the score the moment it changes — no invite required to follow a live game. Apple Watch puts the live board on the wrist. Lock Screen Live Activity keeps the clock front-and-center with the phone in the bag. When the margin hits two, a clutch-time indicator fires. Nobody has to ask 'what's the score?' in a group chat again.",
     reverse: true,
     image: "feature-broadcast.png",
-    imageAlt: "READYPLAY wood-broadcast court styling from in-app art",
+    imageAlt: "READYPLAY broadcast court styling from in-app art",
   },
   {
-    kicker: "Places and leagues",
-    title: "Multi-sport shell, basketball depth.",
-    body: "Play Sites, league standings, and discovery anchor competition to real venues. Basketball carries the richest live vertical today; volleyball, tennis, padel, pickleball, and the rest share the same rails as we deepen each shell.",
+    kicker: "Real places",
+    title: "Every game pinned to the actual court.",
+    body: "Stats attach to the park they happened at. Your leaderboard is everyone who runs at that same spot. Play Sites anchor the run to a real map pin — not a vague thread — so history, weather context, and court standings all point to the same place.",
     reverse: false,
     image: "play-sites.png",
     imageAlt: "READYPLAY outdoor-style full court art from the shipped app",
   },
 ];
+
+function ParallaxImage({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [20, -20]);
+
+  return (
+    <MotionReveal delay={0.12}>
+      <div
+        ref={ref}
+        className="relative mx-auto w-full max-w-lg rounded-[2rem] bg-neutral-200 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.14)] ring-1 ring-neutral-200/80 overflow-hidden"
+      >
+        <motion.div style={{ y }}>
+          <Image
+            src={src}
+            alt={alt}
+            width={512}
+            height={384}
+            className="w-full h-auto object-contain"
+            sizes="(max-width: 768px) 100vw, 512px"
+          />
+        </motion.div>
+      </div>
+    </MotionReveal>
+  );
+}
 
 export function FeatureHighlights() {
   return (
@@ -50,9 +86,7 @@ export function FeatureHighlights() {
           }`}
         >
           <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 md:grid-cols-2 md:items-center md:gap-16">
-            <div
-              className={`${f.reverse ? "md:order-2 md:text-right" : "md:order-1"}`}
-            >
+            <div className={`${f.reverse ? "md:order-2 md:text-right" : "md:order-1"}`}>
               <MotionReveal>
                 <p className="text-sm font-medium uppercase tracking-widest text-neutral-500">
                   {f.kicker}
@@ -68,17 +102,7 @@ export function FeatureHighlights() {
               </MotionReveal>
             </div>
             <div className={f.reverse ? "md:order-1" : "md:order-2"}>
-              <MotionReveal delay={0.12}>
-                <div className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden rounded-[2rem] bg-neutral-200 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.12)] ring-1 ring-neutral-200/80">
-                  <Image
-                    src={assetPath(`/marketing/${f.image}`)}
-                    alt={f.imageAlt}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 512px"
-                  />
-                </div>
-              </MotionReveal>
+              <ParallaxImage src={assetPath(`/marketing/${f.image}`)} alt={f.imageAlt} />
             </div>
           </div>
         </section>

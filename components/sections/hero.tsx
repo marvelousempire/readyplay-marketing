@@ -5,7 +5,7 @@ import Link from "next/link";
 import { IPhoneMockup } from "@/components/iphone-mockup";
 import { SportStickerMosaic } from "@/components/sport-sticker-mosaic";
 import { SportStickerStrip } from "@/components/sport-sticker";
-import { assetPath, brand } from "@/brand-marketing";
+import { assetPath } from "@/brand-marketing";
 
 export function Hero() {
   return (
@@ -30,7 +30,8 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              {brand.pitchCore}
+              You&apos;ve put in years at your court. Everybody there knows your game.
+              Nobody outside that run has ever seen a score, a stat, or any proof it happened.
             </motion.p>
             <motion.p
               className="mt-4 text-base font-medium text-neutral-800 md:text-lg"
@@ -38,8 +39,8 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.48, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
-              Tap players on the live board to score—built for bright sun, fast possessions, and a
-              scorekeeper who never fights the app.
+              READYPLAY keeps the record — a tap-to-score live board built for bright sun,
+              fast possessions, and a scorekeeper who never fights the app.
             </motion.p>
             <motion.div
               className="mt-10 flex flex-wrap justify-center gap-3 md:justify-start"

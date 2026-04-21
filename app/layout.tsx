@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "READYPLAY — Multi-sport pickup, tap scorekeeping, real reputation",
+  title: "READYPLAY — Exercise through play. Verified reputation.",
   description:
-    "Eleven sports on one engine—hero sticker mosaic, per-sport deep dives, tap-to-score live boards, home leaderboards, Achievement Hall, credits, and a marketplace path for paid fill-ins. Basketball ships deepest today.",
+    "Exercise through play, structured scoring, verified reputation, and portable records — for every sport you play.",
 };
 
 export default function RootLayout({
