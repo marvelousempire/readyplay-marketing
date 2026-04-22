@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { MarketingChrome } from "@/components/marketing-chrome";
 import { PlayerAttributeBar } from "@/components/public/PlayerAttributeBar";
+import { PreviewBanner } from "@/components/public/PreviewBanner";
 import {
   getPublicLeaderboard,
   getPublicPlayer,
@@ -164,15 +165,23 @@ function ProfileBody({
     <MarketingChrome>
       <section className="bg-neutral-50 px-6 pt-28 pb-20 md:px-10 md:pt-32">
         <div className="mx-auto max-w-4xl">
+          {/* Preview banner when this is a demo profile — honesty first,
+              so nobody thinks the seeded players are real accounts. */}
+          {player.isDemo && <PreviewBanner className="mb-6" />}
+
           {/* Hero card — same visual language as the Wallet pass */}
           <div className="overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm">
             <div className="flex items-center justify-between bg-gradient-to-r from-[#ea580c] to-[#c2410c] px-6 py-3 text-[11px] font-black tracking-[0.18em] text-white">
               <span>READYPLAY PLAYER CARD</span>
-              {player.verified && (
+              {player.isDemo ? (
+                <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold tracking-widest">
+                  DEMO
+                </span>
+              ) : player.verified ? (
                 <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold tracking-widest">
                   VERIFIED
                 </span>
-              )}
+              ) : null}
             </div>
 
             <div className="flex flex-col gap-6 p-6 sm:flex-row sm:items-center">

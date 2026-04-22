@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { initials, ovrTone, type PublicLeaderboard } from "@/lib/public-api";
+import { PreviewBanner } from "@/components/public/PreviewBanner";
 
 // Shared leaderboard body used by /leaderboard and /leaderboard/[state].
 // Top-3 spotlight + full table; no client-only deps so it can stay inside
@@ -33,6 +34,13 @@ export function LeaderboardTable({ board, state, title, description }: Props) {
         <StateFilter active={state} />
       </header>
 
+      {/* Show the Preview banner when demo rows are present. Prefer the
+          server's `demoActive` flag; fall back to scanning entries so older
+          backends without the flag still behave correctly. */}
+      {(board.demoActive || board.entries.some((e) => e.isDemo)) && (
+        <PreviewBanner className="mt-5" />
+      )}
+
       {board.entries.length >= 3 && (
         <section className="mt-6 grid gap-4 sm:grid-cols-3">
           {board.entries.slice(0, 3).map((p, i) => (
@@ -45,7 +53,12 @@ export function LeaderboardTable({ board, state, title, description }: Props) {
                 <span className="text-xs font-black uppercase tracking-widest text-neutral-400">
                   #{p.rank}
                 </span>
-                {i === 0 && (
+                {p.isDemo && (
+                  <span className="rounded-full bg-orange-500 px-2 py-0.5 text-[9px] font-black tracking-widest text-white">
+                    DEMO
+                  </span>
+                )}
+                {i === 0 && !p.isDemo && (
                   <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold tracking-widest text-amber-700">
                     🏆 TOP
                   </span>
@@ -150,13 +163,22 @@ export function LeaderboardTable({ board, state, title, description }: Props) {
                         </span>
                       )}
                     </span>
-                    {p.verified && (
+                    {p.verified && !p.isDemo && (
                       <span
                         title="Verified"
                         aria-label="Verified"
                         className="ml-1 text-[10px] font-bold text-sky-600"
                       >
                         ✓
+                      </span>
+                    )}
+                    {p.isDemo && (
+                      <span
+                        title="Demo profile — not a real account"
+                        aria-label="Demo profile"
+                        className="ml-1 rounded-full bg-orange-500 px-1.5 py-0.5 text-[9px] font-black tracking-widest text-white"
+                      >
+                        DEMO
                       </span>
                     )}
                   </Link>
