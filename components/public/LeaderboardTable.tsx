@@ -6,7 +6,10 @@ import { initials, ovrTone, type PublicLeaderboard } from "@/lib/public-api";
 // Top-3 spotlight + full table; no client-only deps so it can stay inside
 // a Server Component for pre-rendering.
 
-const DEFAULT_STATES = ["TX", "CA", "NY", "FL", "GA", "IL"];
+// FL leads — READYPLAY is live in Miami right now, so most real activity
+// is here. Other chips stay for visitors / nearby-market accounts, but
+// they're not the headline.
+const DEFAULT_STATES = ["FL", "NY", "GA", "CA", "TX"];
 
 type Props = {
   board: PublicLeaderboard;

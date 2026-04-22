@@ -58,7 +58,9 @@ export default async function FindPlayerPage() {
             >
               Global leaderboard →
             </Link>
-            {["TX", "CA", "NY", "FL", "GA", "IL"].map((s) => (
+            {/* FL leads — READYPLAY is live in Miami. Other chips stay
+                for visitors and accounts in nearby launch markets. */}
+            {["FL", "NY", "GA", "CA", "TX"].map((s) => (
               <Link
                 key={s}
                 href={`/leaderboard/${s.toLowerCase()}/`}
