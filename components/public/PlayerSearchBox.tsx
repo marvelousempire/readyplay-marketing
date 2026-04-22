@@ -118,13 +118,22 @@ export function PlayerSearchBox({
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-semibold text-neutral-950">
                   {p.displayName}
-                  {p.verified && (
+                  {p.verified && !p.isDemo && (
                     <span
                       title="Verified"
                       aria-label="Verified"
                       className="ml-1 text-[10px] font-bold text-sky-600"
                     >
                       ✓
+                    </span>
+                  )}
+                  {p.isDemo && (
+                    <span
+                      title="Demo profile"
+                      aria-label="Demo profile"
+                      className="ml-1.5 rounded-full bg-orange-500 px-1.5 py-0.5 text-[9px] font-black tracking-widest text-white"
+                    >
+                      DEMO
                     </span>
                   )}
                 </p>

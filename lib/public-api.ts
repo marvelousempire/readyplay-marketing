@@ -41,6 +41,8 @@ export interface PublicPlayer {
   attributes: AttributeMap;
   socials: PublicPlayerSocials;
   rank: number | null;
+  /** True when this profile is a seeded demo row. Missing on older servers. */
+  isDemo?: boolean;
   updatedAt: string | null;
 }
 
@@ -48,6 +50,9 @@ export interface PublicLeaderboard {
   generatedAt: string;
   state: string | null;
   count: number;
+  /** True when the response contains at least one demo entry. Surfaces
+   *  the "Preview" banner on the page. Missing → infer from entries. */
+  demoActive?: boolean;
   entries: PublicPlayer[];
 }
 
