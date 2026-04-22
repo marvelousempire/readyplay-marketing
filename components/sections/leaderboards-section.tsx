@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useMotionValue, useSpring, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { MotionReveal } from "@/components/motion-reveal";
@@ -68,6 +69,21 @@ export function LeaderboardsSection() {
             No engagement algorithm. No sponsored positions. The order is
             determined by finished, reviewed games — and nothing else.
           </p>
+
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            <Link
+              href="/leaderboard/"
+              className="inline-flex items-center gap-1.5 rounded-full bg-neutral-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-neutral-800"
+            >
+              See the live leaderboard →
+            </Link>
+            <Link
+              href="/find/"
+              className="inline-flex items-center gap-1.5 rounded-full border border-neutral-300 bg-white px-5 py-2.5 text-sm font-semibold text-neutral-900 transition hover:border-orange-400 hover:text-orange-700"
+            >
+              Find a player
+            </Link>
+          </div>
 
           <div className="mt-8 grid grid-cols-3 gap-3">
             {stats.map((s) => (

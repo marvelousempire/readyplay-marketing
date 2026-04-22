@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "B8KN3MAECX.com.wond.rede.play.RedEPlay",
+        "appIDs": ["B8KN3MAECX.com.wond.rede.play.RedEPlay"],
+        "paths": ["/p/*", "/leaderboard", "/leaderboard/*", "/find"],
+        "components": [
+          { "/": "/p/*",            "comment": "Public player profile" },
+          { "/": "/leaderboard",    "comment": "Public leaderboard"    },
+          { "/": "/leaderboard/*",  "comment": "Per-state leaderboard" },
+          { "/": "/find",           "comment": "Player directory"      }
+        ]
+      }
+    ]
+  }
+}

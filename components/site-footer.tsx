@@ -14,7 +14,8 @@ const navColumns = [
   {
     heading: "Platform",
     links: [
-      { href: "/#leaderboards", label: "Leaderboards" },
+      { href: "/leaderboard/", label: "Live leaderboard" },
+      { href: "/find/", label: "Find a player" },
       { href: "/#achievements", label: "Achievement hall" },
       { href: "/#earn", label: "Credits & earn" },
       { href: "/#identity", label: "Digital identity" },
