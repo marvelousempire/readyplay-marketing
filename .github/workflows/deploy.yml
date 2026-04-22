@@ -13,6 +13,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # Nightly rebuild so newly-added public player profiles (pre-rendered
+  # from api.readyplay.app/public/sitemap at build time) roll out without
+  # anyone pushing a commit. 07:00 UTC = ~00:00 PT, when site traffic is
+  # lowest. Cron times on GitHub Actions can drift by a few minutes.
+  schedule:
+    - cron: "0 7 * * *"
 
 concurrency:
   group: readyplay-marketing-pages
