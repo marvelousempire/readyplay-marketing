@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 
 /** Mobile hamburger: every label uses at least two words for scan clarity. */
 const links = [
+  { href: "/leaderboard/", label: "Live leaderboard" },
+  { href: "/find/", label: "Find a player" },
   { href: "/#sports", label: "All sports" },
   { href: "/#every-sport", label: "Each sport" },
-  { href: "/#leaderboards", label: "Score boards" },
   { href: "/#achievements", label: "Achievement hall" },
   { href: "/#squad", label: "Book & earn" },
   { href: "/#parts", label: "Product platform" },
@@ -27,10 +28,11 @@ const links = [
  * Neighbor sections stay one scroll away on the home page.
  */
 const desktopPrimaryLinks = [
+  { href: "/leaderboard/", label: "Leaderboard" },
+  { href: "/find/", label: "Find a player" },
   { href: "/#sports", label: "All sports" },
   { href: "/#squad", label: "Book & earn" },
   { href: "/#parts", label: "Product platform" },
-  { href: "/#devices", label: "All devices" },
   { href: "/#leagues", label: "For leagues" },
   { href: "/#screens", label: "Screen gallery" },
   { href: "/beta/", label: "Beta testers" },
